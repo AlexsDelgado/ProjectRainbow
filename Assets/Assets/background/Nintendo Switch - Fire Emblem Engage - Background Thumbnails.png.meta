@@ -1,0 +1,729 @@
+fileFormatVersion: 2
+guid: 2e49ae745ed68624c9acda413293a47f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c6e5c7307427f4b9963c37b051a920
+      internalID: 913867905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c14e146770ae743b0378013a3349ef
+      internalID: 1785107603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3bbda5aaaac3d4faba5e3931df1ef8
+      internalID: 1257360586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299dad99b279cef4b92bbedf3cac6ac5
+      internalID: 2093070749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3459eab9de528546bed08d17449b49e
+      internalID: 58094979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dc7a647a50db745b04a923b02e1869
+      internalID: -1503897501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18f9f45ee6678741b38e4ddf79b433e
+      internalID: 765712173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d0f01a0e653114b93fe7ce4a6da6ce
+      internalID: 1467948020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 301.3333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0fbbdb654abb947b0d3c31f9576948
+      internalID: 1764164284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f6690aeded4f54885b5cb8071135dc
+      internalID: 650298116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7915214a21bbf644499a7402413fe508
+      internalID: 158117289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013b4486956ef4c47b9b4b8dfd074798
+      internalID: 398617605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0491edcd48bcd648918c3d6ce48e548
+      internalID: -1051055699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22df456e5eb2cfd4ca26711ebc6d1320
+      internalID: -1727150920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_14
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a9cdabb0c2618489ef10b88e83d8ca
+      internalID: 1515466454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_15
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd8a2cbbe1c3834b90724a2ac0e1bfc
+      internalID: 1181899865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_16
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2479c691e6be8b498b160655e105af7
+      internalID: -142190574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_17
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 151.33333
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a8e5cbce5619a4fb9d79b9e9f2169a
+      internalID: 56388781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d434fbec60f7e754a9f66e6afd26168c
+      internalID: -1589363142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_19
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991ba091b0adeb548b6212fd22a4c94d
+      internalID: -302373676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_20
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a821d22bc434c58469c0026d1b5dcc6e
+      internalID: -84386223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84927a14ff55fa34d9d81a113252758a
+      internalID: -243095075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_22
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc54969c3db5a764b9916924e1f72186
+      internalID: -1693053594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_23
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e29916dd5adb24785eecca42208cb2
+      internalID: 1116667599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_24
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4090674cc754b44a6f4eb75a7c808a
+      internalID: -1481759433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_25
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b1196413d52d94586834f39637bb7e
+      internalID: 1266545861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Fire Emblem Engage - Background Thumbnails_26
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1.3333282
+        width: 150.22223
+        height: 150.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f934fb91336dd2643b653de7e338f5bb
+      internalID: -1376123959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_0: 913867905
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_1: 1785107603
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_10: 158117289
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_11: 398617605
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_12: -1051055699
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_13: -1727150920
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_14: 1515466454
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_15: 1181899865
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_16: -142190574
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_17: 56388781
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_18: -1589363142
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_19: -302373676
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_2: 1257360586
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_20: -84386223
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_21: -243095075
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_22: -1693053594
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_23: 1116667599
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_24: -1481759433
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_25: 1266545861
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_26: -1376123959
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_3: 2093070749
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_4: 58094979
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_5: -1503897501
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_6: 765712173
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_7: 1467948020
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_8: 1764164284
+      Nintendo Switch - Fire Emblem Engage - Background Thumbnails_9: 650298116
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
