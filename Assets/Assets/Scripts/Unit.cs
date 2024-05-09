@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour
     public bool TakeDamage(int dmg)
     {
         //this.GetComponent<Animator>().SetTrigger("Dmg");
-        dmg = dmg - defense;
+        //dmg = dmg - defense;
         currentHP -= dmg;
         if (currentHP <= 0)
         {
@@ -48,6 +48,11 @@ public class Unit : MonoBehaviour
         {
             currentAdrenaline = 100;
         }
+    }
+
+    public void ResetAdrenaline()
+    {
+        currentAdrenaline = 0;
     }
 
     public void Heal(int amount)

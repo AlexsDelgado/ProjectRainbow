@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UnitData unitSO = null;
     [SerializeField] public UnitData playerData;
     [SerializeField] private UnitData[] enemySO;
- 
+
+    public bool tutorial = false;
+    public int newSkillCount = 0;
+    public SkillData newSkill1;
+    public SkillData newSkill2;
+    public SkillData newSkill3;
+    
     //singleton
     private void Awake()
     {
@@ -38,13 +44,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         setPlayerDefaultStats();
+        newSkillCount = 0;
 
     }
 
     private void setPlayerDefaultStats()
     {
         playerData.unitLevel = 1;
-        playerData.baseDamage = 15;
+        playerData.arm = "Punch";
+        playerData.leg = "Advanced footwork";
+        playerData.body = "Deep focus";
         playerData.baseDef = 10;
         playerData.baseMaxHp = 100;
         
@@ -54,12 +63,19 @@ public class GameManager : MonoBehaviour
 
     public void ReturnMainMenu(bool battle)
     {
-        SceneManager.LoadScene("MainMenu");
+        
         unitSO = null;
         if (battle)
         {
-            //reward menu
+            SceneManager.LoadScene("SkillReward");
+            //tutorial = true;
+            
         }
+        else
+        {
+            SceneManager.LoadScene("MainMenu"); 
+        }
+        
     }
 
     public void SetEnemy(GameObject prefabEnemy)

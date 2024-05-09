@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f820448ddcdd3904b9a6033ee72537e2, type: 3}
-  m_Name: EnemyTest
+  m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
+  m_Name: CyberBody
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  unitName: Phantom
-  unitLevel: 1
-  baseDamage: 20
-  baseDef: 5
-  baseMaxHp: 100
-  adrenaline: 0
-  arm: base
-  body: base
-  leg: base
+  name: Heavy duty armor
+  info: Gain 15 adrenaline Gain 75 shield Take reduced damage for the next turn
+  type: Body
+  elemental: Cyber

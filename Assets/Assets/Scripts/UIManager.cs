@@ -34,8 +34,8 @@ public class UIManager : MonoBehaviour
         {
             playerName.text = unit.unitName;
             //playerLevel.text = "Lvl " + unit.unitLevel;
-            playerHpSlider.maxValue = unit.currentHP;
-            playerHpSlider.value = unit.currentHP;
+            playerHpSlider.maxValue = unit.maxHP;
+            playerHpSlider.value = unit.maxHP;
             maxHPUI.text = playerHpSlider.value.ToString();
             currentHPUI.text = playerHpSlider.value.ToString();
         }
@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void SetPlayerShield(int shield)
     {
-        playerShield.value += shield;
+        playerShield.value = shield;
     }
         
 

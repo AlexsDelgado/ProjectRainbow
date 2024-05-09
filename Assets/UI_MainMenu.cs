@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,15 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject playerMenu2;
     public GameObject combatMap;
     public GameObject playerStats;
+    
+    //FightMenuButtons
+    public Button combat0;
+    public Button combat1;
+    public Button combat2;
+
+    public GameObject pfEnemy0;
+    public GameObject pfEnemy1;
+    public GameObject pfEnemy2;
     
     //playerMenuSkills
     public GameObject armsButton;
@@ -50,7 +60,59 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject legSkill3;
     public GameObject legSkill3Info;
 
+    public GameObject armDisabled;
+    public GameObject legDisabled;
+    public GameObject bodyDisabled;
+    
+    public void setStartSkills()
+    {
+        string aux;
+        if (GameManager.Instance.newSkillCount == 0)
+        {
+            armDisabled.SetActive(true);
+            bodyDisabled.SetActive(true);
+            legDisabled.SetActive(true);
+        }
+        else
+        {
+            switch (GameManager.Instance.newSkillCount)
+            {
+                case 1:
+                   checkSkills(GameManager.Instance.newSkill1);
+                    break;
+                case 2:
+                    checkSkills(GameManager.Instance.newSkill1);
+                    checkSkills(GameManager.Instance.newSkill2);
+                    break;
+                case 3:
+                    checkSkills(GameManager.Instance.newSkill1);
+                    checkSkills(GameManager.Instance.newSkill2);
+                    checkSkills(GameManager.Instance.newSkill3);
+                    break;
+            }
+        }
+    }
 
+    public void checkSkills(SkillData skilldata)
+    {
+        string aux = skilldata.type;
+        switch (aux)
+        {
+            case "Arm":
+                armDisabled.SetActive(false);
+                armSkill2.SetActive(true);
+                break;
+            case "Leg":
+                legDisabled.SetActive(false);
+                legSkill2.SetActive(true);
+                break;
+            case "Body":
+                bodyDisabled.SetActive(false);
+                bodySkill2.SetActive(true);
+                break;
+        }
+    }
+    
     public void fightMenuActive()
     {
         fightMenu1.SetActive(false);
@@ -75,6 +137,7 @@ public class UI_MainMenu : MonoBehaviour
         armsButton.SetActive(true);
         legsButton.SetActive(true);
         bodyButton.SetActive(true);
+        setStartSkills();
     }
 
     public void OffButtons()
@@ -210,6 +273,46 @@ public class UI_MainMenu : MonoBehaviour
 
     private void Start()
     {
+    
+        combat0.onClick.AddListener(setEnemy0);
+        combat1.onClick.AddListener(setEnemy1);
+        combat2.onClick.AddListener(setEnemy2);
         
+        
+        
+        
+    }
+
+    private void setEnemy0()
+    {
+        GameManager.Instance.SetEnemy(pfEnemy0);
+        GameManager.Instance.ColosseumStart();
+    }
+    private void setEnemy1()
+    {
+        if (GameManager.Instance.tutorial == true)
+        {
+            GameManager.Instance.SetEnemy(pfEnemy1);
+            GameManager.Instance.ColosseumStart();
+        }
+        else
+        {
+            Debug.Log("Try again after win combat 0");
+        }
+        
+        
+    }
+    private void setEnemy2()
+    {
+        if (GameManager.Instance.tutorial == true)
+        {
+            GameManager.Instance.SetEnemy(pfEnemy2);
+            GameManager.Instance.ColosseumStart();
+        }
+        else
+        {
+            Debug.Log("Try again after win combat 0");
+        }
+
     }
 }
