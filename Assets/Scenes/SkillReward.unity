@@ -534,7 +534,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160927510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1157719829}
+        m_TargetAssemblyTypeName: UI_Rewards, Assembly-CSharp
+        m_MethodName: BodySelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &160927513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,7 +1052,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 707176669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1157719829}
+        m_TargetAssemblyTypeName: UI_Rewards, Assembly-CSharp
+        m_MethodName: LegSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &707176672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1668,7 +1692,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1445592878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1157719829}
+        m_TargetAssemblyTypeName: UI_Rewards, Assembly-CSharp
+        m_MethodName: ArmSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1445592881
 MonoBehaviour:
   m_ObjectHideFlags: 0
