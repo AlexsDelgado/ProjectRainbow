@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour
 {
@@ -192,25 +193,23 @@ public class UI_MainMenu : MonoBehaviour
         
     }
 
-    public void SelectSkill(string type, string skillName)
+    public void SelectSkillArm(string skillName)
     {
-        switch (type)
-        {
-            case "arm":
-                GameManager.Instance.playerData.arm = skillName;
-                break;
-            case "body":
-                GameManager.Instance.playerData.body = skillName;
-                break;
-            case "leg":
-                GameManager.Instance.playerData.leg = skillName;
-                break;
-            default:
-                Debug.Log("Skill type invalid");
-                break;
-        }
+        GameManager.Instance.playerData.arm = skillName;
+    }   
+    public void SelectSkillBody(string skillName)
+    {
+        GameManager.Instance.playerData.body = skillName;
     }
-
-
+    public void SelectSkillLeg(string skillName)
+    {
+        GameManager.Instance.playerData.leg = skillName;
+    }
     
+    
+
+    private void Start()
+    {
+        
+    }
 }

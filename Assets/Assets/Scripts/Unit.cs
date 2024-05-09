@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     public int maxHP;
     
     public int currentHP;
+    public int currentAdrenaline;
     [SerializeField] public UnitData unitData;
     public void setUnit(UnitData unitData)
     {
@@ -37,6 +38,15 @@ public class Unit : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public void GetAdrenaline(int adrenalineBoost)
+    {
+        currentAdrenaline += adrenalineBoost;
+        if (currentAdrenaline > 100)
+        {
+            currentAdrenaline = 100;
         }
     }
 

@@ -10,10 +10,11 @@ public class UnitData : ScriptableObject
     public int baseDamage = 1;
     public int baseDef = 5;
     public int baseMaxHp = 30;
+    public int adrenaline = 0;
 
-    public string arm = "base";
-    public string body = "base";
-    public string leg = "base";
+    public string arm = "Punch";
+    public string body = "Deep focus";
+    public string leg = "Advanced footwork";
     
     
 }

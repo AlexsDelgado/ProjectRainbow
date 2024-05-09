@@ -18,7 +18,14 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI currentHPUI;
     public TextMeshProUGUI maxHPUI;
-   //public GameObject buttonDV;
+
+    public Slider playerShield;
+    public Slider playerAdrenaline;
+
+    public Slider enemyShield;
+    
+   
+   
 
 
     public void SetHUD(Unit unit)
@@ -50,6 +57,16 @@ public class UIManager : MonoBehaviour
     {
         playerHpSlider.value = hp;
         currentHPUI.text = playerHpSlider.value.ToString();
+    }
+
+    public void SetPlayerAdrenaline(int adrenaline)
+    {
+        playerAdrenaline.value = adrenaline;
+    }
+
+    public void SetPlayerShield(int shield)
+    {
+        playerShield.value += shield;
     }
         
 

@@ -52,15 +52,14 @@ public class GameManager : MonoBehaviour
 
  
 
-    public void returnMainIsland(bool battle)
+    public void ReturnMainMenu(bool battle)
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene("MainMenu");
         unitSO = null;
         if (battle)
         {
-            //ColoWins++;
+            //reward menu
         }
-        //AudioManager.Instance.PlayMusicLobby();
     }
 
     public void SetEnemy(GameObject prefabEnemy)
