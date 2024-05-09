@@ -44,10 +44,10 @@ public class GameManager : MonoBehaviour
     private void setPlayerDefaultStats()
     {
         playerData.unitLevel = 1;
-        playerData.baseDamage = 10;
-        playerData.baseDef = 5;
-        playerData.baseMaxHp = 35;
-        playerData.wisdom = 5;
+        playerData.baseDamage = 15;
+        playerData.baseDef = 10;
+        playerData.baseMaxHp = 100;
+        
     }
 
  

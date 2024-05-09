@@ -11,6 +11,9 @@ public class UnitData : ScriptableObject
     public int baseDef = 5;
     public int baseMaxHp = 30;
 
-    public int wisdom = 5;
-    public int reward = 5;
+    public string arm = "base";
+    public string body = "base";
+    public string leg = "base";
+    
+    
 }
