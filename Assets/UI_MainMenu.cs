@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour
@@ -66,12 +67,11 @@ public class UI_MainMenu : MonoBehaviour
     
     public void setStartSkills()
     {
-        string aux;
         if (GameManager.Instance.newSkillCount == 0)
         {
-            armDisabled.SetActive(true);
-            bodyDisabled.SetActive(true);
-            legDisabled.SetActive(true);
+            //armDisabled.SetActive(true);
+            //bodyDisabled.SetActive(true);
+            //legDisabled.SetActive(true);
         }
         else
         {
@@ -149,7 +149,6 @@ public class UI_MainMenu : MonoBehaviour
 
     public void ArmMenu()
     {
-        
         OffButtons();
         skillContainer.SetActive(true);
         armSkills.SetActive(true);
@@ -162,7 +161,6 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void LegMenu()
     {
-        
         OffButtons();
         skillContainer.SetActive(true);
         legSkills.SetActive(true);
@@ -203,57 +201,48 @@ public class UI_MainMenu : MonoBehaviour
     {
         CloseAllInfo();
         armSkill1Info.SetActive(true);
-        
     }
     public void ArmSkill2()
     {
         CloseAllInfo();
         armSkill2Info.SetActive(true);
-        
     }
     public void ArmSkill3()
     {
         CloseAllInfo();
         armSkill3Info.SetActive(true);
-        
     }
     public void BodySkill1()
     {
         CloseAllInfo();
         bodySkill1Info.SetActive(true);
-        
     }
     public void BodySkill2()
     {
         CloseAllInfo();
         bodySkill2Info.SetActive(true);
-        
     }
     public void BodySkill3()
     {
         CloseAllInfo();
         bodySkill3Info.SetActive(true);
-        
     }
     
     public void LegSkill1()
     {
         CloseAllInfo();
         legSkill1Info.SetActive(true);
-        
     }
     public void LegSkill2()
     {
         CloseAllInfo();
         legSkill2Info.SetActive(true);
-        
     }
 
     public void LegSkill3()
     {
         CloseAllInfo();
         legSkill3Info.SetActive(true);
-        
     }
 
     public void SelectSkillArm(string skillName)
@@ -268,19 +257,17 @@ public class UI_MainMenu : MonoBehaviour
     {
         GameManager.Instance.playerData.leg = skillName;
     }
-    
-    
 
+
+
+    //Menu para seleccion de enemigos
     private void Start()
     {
-    
         combat0.onClick.AddListener(setEnemy0);
         combat1.onClick.AddListener(setEnemy1);
         combat2.onClick.AddListener(setEnemy2);
-        
-        
-        
-        
+        setStartSkills();
+        playerStats.SetActive(false);
     }
 
     private void setEnemy0()
@@ -314,5 +301,10 @@ public class UI_MainMenu : MonoBehaviour
             Debug.Log("Try again after win combat 0");
         }
 
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
