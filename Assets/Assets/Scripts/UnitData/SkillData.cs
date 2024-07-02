@@ -6,6 +6,4 @@ public class SkillData : ScriptableObject
     public string info = "defaultValue";
     public string type = "defaultValue";
     public string elemental = "";
-
-
 }

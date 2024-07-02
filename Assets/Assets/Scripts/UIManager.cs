@@ -68,10 +68,4 @@ public class UIManager : MonoBehaviour
     {
         playerShield.value = shield;
     }
-        
-
-
-    
-    
-    
 }
