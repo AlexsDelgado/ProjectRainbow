@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
-  m_Name: Corrosive Arm
+  m_Script: {fileID: 11500000, guid: 55e02508c8d74fa498c8cb5ef9f8a175, type: 3}
+  m_Name: BodySaveData
   m_EditorClassIdentifier: 
-  name: Redox
-  info: Deal 35 corrosive damage Cause Armor diluted on your enemy for two turns
-  type: Arm
-  elemental: Corrosive
+  skillId: 0
+  skillName: Peto flipante
+  skillInfo: Este es mi peto flipante que consigo lleva el alma de mis enemigos.
+  skillImage: {fileID: 0}

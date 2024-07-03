@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,19 +11,9 @@ public class UI_Rewards : MonoBehaviour
    public GameObject leg;
    public GameObject body;
 
-   public TextMeshProUGUI armSkill;
-   public TextMeshProUGUI legSkill;
-   public TextMeshProUGUI bodySkill;
-
-   public TextMeshProUGUI armInfo;
-   public TextMeshProUGUI legInfo;
-   public TextMeshProUGUI bodyInfo;
-
    [SerializeField] public SkillData armData;
    [SerializeField] public SkillData legData;
    [SerializeField] public SkillData bodyData;
-   
-   
    public int newSkill;
 
 
@@ -39,37 +28,20 @@ public class UI_Rewards : MonoBehaviour
       // legData = leg.GetComponent<SkillData>();
       // bodyData = body.GetComponent<SkillData>();
 
-      armInfo.text = armData.info;
-      legInfo.text = legData.info;
-      bodyInfo.text = bodyData.info;
-
-      armSkill.text = armData.name;
-      legSkill.text = legData.name;
-      bodySkill.text = bodyData.name;
-      
-      
       newSkill = GameManager.Instance.newSkillCount;
    }
 
-   
-   
    public void ArmSelected()
    {
-      GameManager.Instance.playerData.arm = armData.name;
-      ReturnMenu();
-      //newSkillGM(armData);
+      newSkillGM(armData);
    }
    public void LegSelected()
    {
-      //newSkillGM(legData);
-      GameManager.Instance.playerData.leg = legData.name;
-      ReturnMenu();
+      newSkillGM(legData);
    }
    public void BodySelected()
    {
-      //newSkillGM(bodyData);
-      GameManager.Instance.playerData.body = bodyData.name;
-      ReturnMenu();
+      newSkillGM(bodyData);
    }
    public void newSkillGM(SkillData ability)
    {
@@ -91,11 +63,6 @@ public class UI_Rewards : MonoBehaviour
       GameManager.Instance.tutorial = true;
       SceneManager.LoadScene("MainMenu");
 
-   }
-
-   public void ReturnMenu()
-   {
-      SceneManager.LoadScene("MainMenu");
    }
 
 }
