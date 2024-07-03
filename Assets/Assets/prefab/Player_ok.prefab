@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 196574758376239597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 19
-  m_Sprite: {fileID: 21300000, guid: 064ea479c04f93343a6caf927169bc78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32a5f10e9b665fc48b701694a28577c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,4 +104,5 @@ MonoBehaviour:
   defense: 10
   maxHP: 60
   currentHP: 60
+  currentAdrenaline: 0
   unitData: {fileID: 11400000, guid: 4c8014ca49f5cf144b29266c843455f8, type: 2}

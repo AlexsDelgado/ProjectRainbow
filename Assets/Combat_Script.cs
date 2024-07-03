@@ -82,6 +82,8 @@ public class Combat_Script : MonoBehaviour
 
     private void Start()
     {
+        enemyPF = GameManager.Instance.enemyPrefab;
+        
         state = BattleState.START;
          enemyUnitData = GameManager.Instance.unitSO;
          playerUnitData = GameManager.Instance.playerData;

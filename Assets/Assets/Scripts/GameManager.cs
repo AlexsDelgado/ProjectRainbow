@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UnitData playerData;
     [SerializeField] private UnitData[] enemySO;
 
+    
     public bool tutorial = false;
     public int newSkillCount = 0;
     public SkillData newSkill1;
@@ -67,13 +68,13 @@ public class GameManager : MonoBehaviour
         unitSO = null;
         if (battle)
         {
-            SceneManager.LoadScene("SkillReward");
-            //tutorial = true;
+            SceneManager.LoadScene("SkillReward0");
+            tutorial = true;
             
         }
         else
         {
-            SceneManager.LoadScene("MainMenu"); 
+            SceneManager.LoadScene("LevelSelector"); 
         }
         
     }

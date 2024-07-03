@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,13 @@ public class UI_Rewards : MonoBehaviour
    [SerializeField] public SkillData bodyData;
    public int newSkill;
 
+   public TextMeshProUGUI armSkill;
+   public TextMeshProUGUI legSkill;
+   public TextMeshProUGUI bodySkill;
+
+   public TextMeshProUGUI armInfo;
+   public TextMeshProUGUI legInfo;
+   public TextMeshProUGUI bodyInfo;
 
    private void Start()
    {
@@ -27,41 +35,56 @@ public class UI_Rewards : MonoBehaviour
       // armData = arm.GetComponent<SkillData>();
       // legData = leg.GetComponent<SkillData>();
       // bodyData = body.GetComponent<SkillData>();
+      
+      armInfo.text = armData.info;
+      legInfo.text = legData.info;
+      bodyInfo.text = bodyData.info;
+
+      armSkill.text = armData.name;
+      legSkill.text = legData.name;
+      bodySkill.text = bodyData.name;
+      
 
       newSkill = GameManager.Instance.newSkillCount;
    }
 
    public void ArmSelected()
    {
-      newSkillGM(armData);
+      newSkillGM();
+      //agrega funcionalidad al combate
+      GameManager.Instance.playerData.arm = armData.name;
+      //salvado
+      //GameManager.Instance.savedata
    }
    public void LegSelected()
    {
-      newSkillGM(legData);
+      newSkillGM();
+      GameManager.Instance.playerData.leg = legData.name;
    }
    public void BodySelected()
    {
-      newSkillGM(bodyData);
+      newSkillGM();
+      GameManager.Instance.playerData.body = bodyData.name;
    }
-   public void newSkillGM(SkillData ability)
+   public void newSkillGM()
    {
       
-      switch (newSkill)
-      {
-         case 0:
-            GameManager.Instance.newSkill1 = ability;
-            break;
-         case 1:
-            GameManager.Instance.newSkill2 = ability;
-            break;
-         case 2:
-            GameManager.Instance.newSkill3 = ability;
-            break;
-      }
+      // switch (newSkill)
+      // {
+      //    case 0:
+      //       GameManager.Instance.newSkill1 = ability;
+      //       break;
+      //    case 1:
+      //       GameManager.Instance.newSkill2 = ability;
+      //       break;
+      //    case 2:
+      //       GameManager.Instance.newSkill3 = ability;
+      //       break;
+      // }
 
       GameManager.Instance.newSkillCount++;
       GameManager.Instance.tutorial = true;
-      SceneManager.LoadScene("MainMenu");
+      SceneManager.LoadScene("LevelSelector");
 
    }
 
