@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55e02508c8d74fa498c8cb5ef9f8a175, type: 3}
-  m_Name: SaveData
+  m_Name: LegsSaveData
   m_EditorClassIdentifier: 
-  SkillId: 0
-  SkillInfo: 
-  SkillImage: {fileID: 0}
+  skillId: 0
+  skillName: Pelado
+  skillInfo: Buen laburo gente!
+  skillImage: {fileID: 0}

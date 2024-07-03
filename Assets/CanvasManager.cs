@@ -9,11 +9,22 @@ public class CanvasManager : MonoBehaviour
 {
     private CanvasManager Instance;
     [Header ("ScriptableObject")]
-    [SerializeField] private ToSaveData data;
-    [Header("GameObjects")]
-    [SerializeField] private TMPro.TextMeshProUGUI skillId;
-    [SerializeField] private Image skillImage;
-    [SerializeField] private TMPro.TextMeshProUGUI skillInfo;
+    [SerializeField] private ToSaveData chestData;
+    [SerializeField] private ToSaveData armsData;
+    [SerializeField] private ToSaveData legsData;
+    [Header("Chest")]
+    [SerializeField] private TextMeshProUGUI chestSkillName;
+    [SerializeField] private TextMeshProUGUI chestSkillInfo;
+    //[SerializeField] private Image chestSkillImage;
+    [Header("Arms")]
+    [SerializeField] private TextMeshProUGUI armsSkillInfo;
+    [SerializeField] private TextMeshProUGUI armsSkillName;
+    //[SerializeField] private Image armsSkillImage;
+    [Header("Legs")]
+    [SerializeField] private TextMeshProUGUI legsSkillInfo;
+    [SerializeField] private TextMeshProUGUI legsSkillName;
+    //[SerializeField] private Image legsSkillImage;
+
 
     private void Awake()
     {
@@ -29,8 +40,16 @@ public class CanvasManager : MonoBehaviour
 
     private void Start()
     {
-        skillId.text = data.SkillId.ToString();
-        skillImage = data.SkillImage;
-        skillInfo.text = data.SkillInfo;
+        LoadFromScriptable();
+    }
+
+    private void LoadFromScriptable()
+    {
+        chestSkillName.text = chestData.SkillName.ToString();
+        chestSkillInfo.text = chestData.SkillInfo.ToString();
+        armsSkillName.text = armsData.SkillName.ToString();
+        armsSkillInfo.text = armsData.SkillInfo.ToString();
+        legsSkillName.text = legsData.SkillName.ToString();
+        legsSkillInfo.text = legsData.SkillInfo.ToString();
     }
 }
