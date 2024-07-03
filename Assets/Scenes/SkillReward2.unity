@@ -1487,9 +1487,15 @@ MonoBehaviour:
   arm: {fileID: 1445592876}
   leg: {fileID: 707176667}
   body: {fileID: 160927508}
-  armData: {fileID: 11400000, guid: eb04f72a4912e894daad9b0735e64de4, type: 2}
-  legData: {fileID: 11400000, guid: dd86ae38e5a438845bf4771cf9ed06e8, type: 2}
-  bodyData: {fileID: 11400000, guid: 960ab31b4c875d04fb43997cc0c7f4dd, type: 2}
+  armSkill: {fileID: 1838254779}
+  legSkill: {fileID: 734374006}
+  bodySkill: {fileID: 88405638}
+  armInfo: {fileID: 1928234914}
+  legInfo: {fileID: 528251665}
+  bodyInfo: {fileID: 1467083615}
+  armData: {fileID: 11400000, guid: 2e402018ff6405a429c9768356e7dd02, type: 2}
+  legData: {fileID: 11400000, guid: 4d5c08c13ec59ed458cc5d26b1d53bad, type: 2}
+  bodyData: {fileID: 11400000, guid: 9a9ba50faf558c945a3c93c210132dbb, type: 2}
   newSkill: 0
 --- !u!1 &1200577440
 GameObject:

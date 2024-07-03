@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: CyberBody
   m_EditorClassIdentifier: 
+  id: 4
   name: Heavy duty armor
   info: Gain 15 adrenaline Gain 75 shield Take reduced damage for the next turn
   type: Body

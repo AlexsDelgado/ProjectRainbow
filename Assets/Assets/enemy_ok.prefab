@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  unitName: Mostro 1
+  unitName: Battle0
   unitLevel: 1
   damage: 15
   defense: 40
   maxHP: 70
   currentHP: 70
+  currentAdrenaline: 0
   unitData: {fileID: 11400000, guid: 63e1d4a1ee117824d98a84f8b977fea6, type: 2}
