@@ -16,5 +16,5 @@ public class UnitData : ScriptableObject
     public string body = "Deep focus";
     public string leg = "Advanced footwork";
     
-    
+    public string details = "info before combat";
 }

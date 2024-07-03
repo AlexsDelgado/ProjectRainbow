@@ -723,11 +723,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: e031c4b4-d3b3-40b8-a512-e8895a3ed043
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Project Rainbow
+  organizationId: wazel420
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
