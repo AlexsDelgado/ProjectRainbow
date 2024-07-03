@@ -1,4 +1,3 @@
-
 using UnityEngine;
 [CreateAssetMenu(fileName = "UnitData",menuName = "Unit Data")]
 public class UnitData : ScriptableObject

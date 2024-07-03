@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor.PackageManager;
-using UnityEngine;
 
 public enum BattleState{START, PLAYER, ENEMY, WIN, LOSE}
 

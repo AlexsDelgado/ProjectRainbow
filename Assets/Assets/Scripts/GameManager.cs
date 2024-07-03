@@ -19,14 +19,22 @@ public class GameManager : MonoBehaviour
     public SkillData newSkill1;
     public SkillData newSkill2;
     public SkillData newSkill3;
-    
-    //singleton
+
+    [SerializeField] private int victoriesQuantity;
+
+
+    [SerializeField] private ToSaveData legSkill;
+    [SerializeField] private ToSaveData armSkill;
+    [SerializeField] private ToSaveData chestSkill;
+
+    private PlayerData playerSaveData;
+
     private void Awake()
     {
-        GameObject[] objs =GameObject.FindGameObjectsWithTag("GameController");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
         if (objs.Length > 1)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         if (Instance != null && Instance!=this)
         {
@@ -37,29 +45,64 @@ public class GameManager : MonoBehaviour
             Instance = this;    
         }
         
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
     
    //set default game stats
     private void Start()
     {
-        setPlayerDefaultStats();
-        newSkillCount = 0;
-
+        playerSaveData = new PlayerData
+        {
+            legSkillName = legSkill.SkillName,
+            legInfo = legSkill.SkillInfo,
+            armSkillName = armSkill.SkillName,
+            armInfo = armSkill.SkillInfo,
+            chestSkillName = chestSkill.SkillName,
+            chestInfo = chestSkill.SkillInfo,
+            victories = victoriesQuantity
+        };
+    }
+    public void SaveCheckpoint()
+    {
+        legSkill.SkillName = playerSaveData.legSkillName;
+        legSkill.SkillInfo = playerSaveData.legInfo;
+        armSkill.SkillName = playerSaveData.armSkillName;
+        armSkill.SkillInfo = playerSaveData.armInfo;
+        chestSkill.SkillName = playerSaveData.chestSkillName;
+        chestSkill.SkillInfo = playerSaveData.chestInfo;
     }
 
-    private void setPlayerDefaultStats()
+    public void LoadData()
+    {
+        PlayerData loadedData = SaveControl.LoadPlayerData();
+        if (loadedData != null)
+        {
+            legSkill.SkillName = loadedData.legSkillName;
+            legSkill.SkillInfo = loadedData.legInfo;
+            armSkill.SkillName = loadedData.armSkillName;
+            armSkill.SkillInfo = loadedData.armInfo;
+            chestSkill.SkillName = loadedData.chestSkillName;
+            chestSkill.SkillInfo = loadedData.chestInfo;
+        }
+    }
+    public void SaveAndExit()
+    {
+        SaveControl.SavePlayerData(playerSaveData);
+    }
+
+    public void SetPlayerDefaultStats()
     {
         playerData.unitLevel = 1;
         playerData.arm = "Punch";
+        armSkill.SkillName = "Punch";
         playerData.leg = "Advanced footwork";
+        legSkill.SkillName = "Advanced footwork";
         playerData.body = "Deep focus";
+        chestSkill.SkillName = "Deep focus";
         playerData.baseDef = 10;
         playerData.baseMaxHp = 100;
-        
+        Debug.Log("Set defaul values");
     }
-
- 
 
     public void ReturnMainMenu(bool battle)
     {
