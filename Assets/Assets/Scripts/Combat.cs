@@ -48,7 +48,7 @@ public class Combat : MonoBehaviour
         enemyUnit.setUnit(enemyUnitData);
         playerUnit.setUnit(playerUnitData);
 
-        texto.text = "Preparate para enfrentarte a " + enemyUnit.unitName;
+        texto.text = "Prepare to fight against " + enemyUnit.unitName;
         UI_Instance.SetHUD(playerUnit);
         UI_Instance.SetHUD(enemyUnit);
         yield return new WaitForSeconds(2f);
@@ -58,7 +58,7 @@ public class Combat : MonoBehaviour
 
     public void PlayerTurn()
     {
-        texto.text = "Elige una accion:";
+        texto.text = "Choose an Action:";
         accion = true;
     }
 
@@ -95,14 +95,14 @@ public class Combat : MonoBehaviour
     {
         if (state == BattleState.WIN)
         {
-            texto.text = "ganaste";
+            texto.text = "You Win";
             //codigo que vuelva a la anterior escena
             yield return new WaitForSeconds(2f);
             //GameManager.Instance.ReturnMainMenu(true);
         }
         else if (state == BattleState.LOSE)
         {
-            texto.text = "perdiste";
+            texto.text = "You Lose";
             yield return new WaitForSeconds(2f);
             //GameManager.Instance.ReturnMainMenu(false);
 

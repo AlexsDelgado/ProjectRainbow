@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: CyberLeg
   m_EditorClassIdentifier: 
-  id: 5
   name: Offensive maneuvers
-  info: Gain 30 pepa  Next attack deals more damage
+  info: Gain 30 Next attack deals more damage
   type: Leg
   elemental: Cyber

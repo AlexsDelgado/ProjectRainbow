@@ -208,7 +208,7 @@ public class Combat_Script : MonoBehaviour
         playerUnit.setUnit(playerUnitData);
         totalHealthModifier = corrosive_HealthModifier * corrosive_Count +nigthmare_Count*nightmare_HealthModifier+cyber_Count*cyber_HealthModifier;
         playerUnit.maxHP = playerUnitData.baseMaxHp - totalHealthModifier;
-        texto.text = "Preparate para enfrentarte a " + enemyUnit.unitName;
+        texto.text = "Prepare to fight against " + enemyUnit.unitName;
         UI_Instance.SetHUD(playerUnit);
         UI_Instance.SetHUD(enemyUnit);
         modifierID = 0;
@@ -327,7 +327,7 @@ public class Combat_Script : MonoBehaviour
     
     public void PlayerTurn()
     {
-        texto.text = "Elige una accion:";
+        texto.text = "Choose your skill:";
         accion = true;
         //can move
         if (playerModifier == true)
@@ -665,14 +665,14 @@ public class Combat_Script : MonoBehaviour
     {
         if (state == BattleState.WIN)
         {
-            texto.text = "ganaste";
+            texto.text = "You Win";
             //codigo que vuelva a la anterior escena
             yield return new WaitForSeconds(2f);
             GameManager.Instance.ReturnMainMenu(true);
         }
         else if (state == BattleState.LOSE)
         {
-            texto.text = "perdiste";
+            texto.text = "You Lose";
             yield return new WaitForSeconds(2f);
             GameManager.Instance.ReturnMainMenu(false);
 

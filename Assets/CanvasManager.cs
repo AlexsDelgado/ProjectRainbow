@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI legsSkillInfo;
     [SerializeField] private TextMeshProUGUI legsSkillName;
     //[SerializeField] private Image legsSkillImage;
-
+    public Image player;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class CanvasManager : MonoBehaviour
     private void Start()
     {
         LoadFromScriptable();
+        
     }
 
     private void LoadFromScriptable()
