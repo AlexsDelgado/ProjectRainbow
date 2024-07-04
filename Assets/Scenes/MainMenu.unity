@@ -262,7 +262,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8969ecbf6fc4a44a87d24a3f91fda2f, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 030645529284aeb43aa6f9f3bc857f88, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8969ecbf6fc4a44a87d24a3f91fda2f, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 030645529284aeb43aa6f9f3bc857f88, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8969ecbf6fc4a44a87d24a3f91fda2f, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 030645529284aeb43aa6f9f3bc857f88, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1149,6 +1149,9 @@ MonoBehaviour:
   newSkill2: {fileID: 0}
   newSkill3: {fileID: 0}
   victoriesQuantity: 0
+  armCounter: 0
+  bodyCounter: 0
+  legCounter: 0
   legSkill: {fileID: 11400000, guid: 298caddf1a5e94f4c83c61c444b612db, type: 2}
   armSkill: {fileID: 11400000, guid: b396ddafc34df8d45a32429b7ad21336, type: 2}
   chestSkill: {fileID: 11400000, guid: 632783057a847564491801f51e4d07c0, type: 2}
@@ -1525,14 +1528,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2087880321, guid: 8c38491eb2bd7c848a5ee45a4bd2e480, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98cc8fb8bc383344c861ffba4d1d1af4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
