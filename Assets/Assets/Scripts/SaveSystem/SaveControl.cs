@@ -16,7 +16,7 @@ public static class SaveControl
     {
         if (!File.Exists(SavePath))
         {
-            Debug.Log("Data doesnt exist... Loading deault values");
+            Debug.Log("Data doesnt exist...");
             return null;
         }
 

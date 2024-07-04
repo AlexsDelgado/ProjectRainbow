@@ -34,14 +34,20 @@ public class UI_Rewards : MonoBehaviour
    public void ArmSelected()
    {
       newSkillGM(armData);
+        GameManager.Instance.armSkill.SkillName = armData.name;
+        GameManager.Instance.armSkill.SkillInfo = armData.info;
    }
    public void LegSelected()
    {
       newSkillGM(legData);
+        GameManager.Instance.legSkill.SkillName = legData.name;
+        GameManager.Instance.legSkill.SkillInfo = legData.info;
    }
    public void BodySelected()
    {
       newSkillGM(bodyData);
+        GameManager.Instance.chestSkill.SkillName = bodyData.name;
+        GameManager.Instance.chestSkill.SkillInfo = bodyData.info;
    }
    public void newSkillGM(SkillData ability)
    {
@@ -60,6 +66,7 @@ public class UI_Rewards : MonoBehaviour
       }
 
       GameManager.Instance.newSkillCount++;
+        GameManager.Instance.victoriesQuantity++;
       GameManager.Instance.tutorial = true;
       SceneManager.LoadScene("MainMenu");
 

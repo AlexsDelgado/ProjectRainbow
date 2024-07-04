@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
     public SkillData newSkill2;
     public SkillData newSkill3;
 
-    [SerializeField] private int victoriesQuantity;
+    public int victoriesQuantity;
 
 
-    [SerializeField] private ToSaveData legSkill;
-    [SerializeField] private ToSaveData armSkill;
-    [SerializeField] private ToSaveData chestSkill;
+    public ToSaveData legSkill;
+    public ToSaveData armSkill;
+    public ToSaveData chestSkill;
 
     private PlayerData playerSaveData;
 
@@ -48,20 +48,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     
-   //set default game stats
-    private void Start()
-    {
-        playerSaveData = new PlayerData
-        {
-            legSkillName = legSkill.SkillName,
-            legInfo = legSkill.SkillInfo,
-            armSkillName = armSkill.SkillName,
-            armInfo = armSkill.SkillInfo,
-            chestSkillName = chestSkill.SkillName,
-            chestInfo = chestSkill.SkillInfo,
-            victories = victoriesQuantity
-        };
-    }
     public void SaveCheckpoint()
     {
         legSkill.SkillName = playerSaveData.legSkillName;
@@ -87,6 +73,16 @@ public class GameManager : MonoBehaviour
     }
     public void SaveAndExit()
     {
+        playerSaveData = new PlayerData
+        {
+            legSkillName = legSkill.SkillName,
+            legInfo = legSkill.SkillInfo,
+            armSkillName = armSkill.SkillName,
+            armInfo = armSkill.SkillInfo,
+            chestSkillName = chestSkill.SkillName,
+            chestInfo = chestSkill.SkillInfo,
+            victories = victoriesQuantity
+        };
         SaveControl.SavePlayerData(playerSaveData);
     }
 
