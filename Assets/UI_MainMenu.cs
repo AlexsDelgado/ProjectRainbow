@@ -277,8 +277,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     private void setEnemy1()
     {
-        
-        if (GameManager.Instance.tutorial == true)
+        if (GameManager.Instance.victoriesQuantity >= 1)
         {
             GameManager.Instance.SetEnemy(pfEnemy1);
             GameManager.Instance.ColosseumStart();
@@ -286,14 +285,12 @@ public class UI_MainMenu : MonoBehaviour
         else
         {
             Debug.Log("Try again after win combat 0");
-        }
-        
-        
+            //Falta UI
+        } 
     }
     private void setEnemy2()
     {
-        
-        if (GameManager.Instance.tutorial == true)
+        if (GameManager.Instance.victoriesQuantity >= 1)
         {
             GameManager.Instance.SetEnemy(pfEnemy2);
             GameManager.Instance.ColosseumStart();
@@ -301,8 +298,17 @@ public class UI_MainMenu : MonoBehaviour
         else
         {
             Debug.Log("Try again after win combat 0");
+            //Falta UI
         }
+    }
 
+    private void setEnemy3() 
+    { 
+        //if (GameManager.Instance.victoriesQuantity >= 2)
+        //{
+        //    GameManager.Instance.SetEnemy(pfEnemy3);
+        //    GameManager.Instance.ColosseumStart();
+        //}
     }
 
     public void BackToMainMenu()

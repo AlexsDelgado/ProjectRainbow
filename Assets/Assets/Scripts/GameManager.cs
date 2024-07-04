@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UnitData playerData;
     [SerializeField] private UnitData[] enemySO;
 
-    
-    public bool tutorial = false;
     public int newSkillCount = 0;
     public SkillData newSkill1;
     public SkillData newSkill2;
@@ -55,7 +53,6 @@ public class GameManager : MonoBehaviour
         unitSO = null;
         if (battle)
         {
-            tutorial = true;
             string enemigo = enemyPrefab.GetComponent<Unit>().unitName;
             switch (enemigo)
             {

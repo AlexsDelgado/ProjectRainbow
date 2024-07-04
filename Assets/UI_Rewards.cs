@@ -88,7 +88,7 @@ public class UI_Rewards : MonoBehaviour
       // }
 
       GameManager.Instance.newSkillCount++;
-      GameManager.Instance.tutorial = true;
+        GameManager.Instance.victoriesQuantity += 1;
       SceneManager.LoadScene("LevelSelector");
 
    }
