@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: NightmareArm
   m_EditorClassIdentifier: 
-  id: 9
-  name: Nightmare  Arm
-  info: pega caleta Phantom
+  name: Spirit burn
+  info: 'Deal 15 nightmare damage Cause Nightmarish burn on the enemy for one turn
+    Gain 20 adrenaline '
   type: Arm
   elemental: Nightmare

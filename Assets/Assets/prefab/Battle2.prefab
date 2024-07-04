@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  unitName: Mostro 1
+  unitName: Battle2
   unitLevel: 1
   damage: 15
   defense: 40

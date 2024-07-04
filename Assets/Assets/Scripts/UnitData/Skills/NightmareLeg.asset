@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: NightmareLeg
   m_EditorClassIdentifier: 
-  id: 11
-  name: phantom legs
-  info: Phantommmm
+  name: Frighten
+  info: Cause Frightened on the enemy for one turn
   type: Legs
   elemental: Nightmare

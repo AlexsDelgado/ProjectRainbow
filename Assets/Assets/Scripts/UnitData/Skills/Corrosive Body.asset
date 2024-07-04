@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: Corrosive Body
   m_EditorClassIdentifier: 
-  id: 7
-  name: defaultValue
-  info: Corrosive Body
+  name: Peptizing ooze
+  info: Deal 30 corrosive damage Cause Anti-healing on your enemy for two turns
   type: Body
   elemental: Corrosive

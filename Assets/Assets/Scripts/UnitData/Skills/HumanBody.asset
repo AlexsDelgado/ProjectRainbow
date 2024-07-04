@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: HumanBody
   m_EditorClassIdentifier: 
-  name: defaultValue
-  info: defaultValue
-  type: defaultValue
-  elemental: 
+  name: Deep focus
+  info: Gain 50 adrenaline
+  type: Body
+  elemental: Human

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
   m_Name: NightmareBody
   m_EditorClassIdentifier: 
-  id: 10
-  name: Nightmare Value
-  info: Nightmare Body
+  name: Ghastly Movement
+  info: 'Gives you a 25% chance to avoid the next enemy attack entirely Gain 20 adrenaline '
   type: Body
   elemental: Nightmare
