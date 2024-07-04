@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
+using UnityEngine;
 
 public enum BattleState{START, PLAYER, ENEMY, WIN, LOSE}
 
 public class Combat_Script : MonoBehaviour
 {
-    
+    public int lowDamage;
+    public int mediumDamage;
+    public int highDamage;
       [SerializeField] private GameObject playerPF;
     [SerializeField] private GameObject enemyPF;
     private GameObject enemyGameObject;
@@ -71,11 +76,11 @@ public class Combat_Script : MonoBehaviour
     private bool dmgMinus;
     private bool dmgBoost;
     private bool canMove = true;
+    private bool phantomEffect;
+    private bool burn;
 
 
-    private string enemySkill1;
-    private string enemySkill2;
-    private string enemySkill3;
+    public int contadorLv1;
     
 
     [SerializeField] private int playerShield;
@@ -91,6 +96,7 @@ public class Combat_Script : MonoBehaviour
          enemyUnitData = GameManager.Instance.unitSO;
          playerUnitData = GameManager.Instance.playerData;
          canMove = true;
+         contadorLv1 = 0;
          setupSkills();
         
         StartCoroutine(SetupBattle());
@@ -117,6 +123,18 @@ public class Combat_Script : MonoBehaviour
                 armUltimateDmg = 65;
                 cyber_Count++;
                 break;
+            case "Redox":
+                armSkillAdrenaline = 0;
+                armSkillDmg = 35;
+                armUltimateDmg = 70;
+                corrosive_Count++;
+                break;
+            case "Spirit burn":
+                armSkillAdrenaline = 0;
+                armSkillDmg = 15;
+                armUltimateDmg = 30;
+                nigthmare_Count++;
+                break;
         }
 
         switch (LegSkill)
@@ -129,6 +147,18 @@ public class Combat_Script : MonoBehaviour
                 legSkillAdrenaline = 30;
                 legSkillDmg = 0;
                 cyber_Count++;
+                break;
+            case "Slimy step":
+                legSkillAdrenaline = 60;
+                legSkillDmg = 0;
+                legUltimateDmg = 30;
+                corrosive_Count++;
+                break;
+            case "Ghastly Movement":
+                legSkillAdrenaline = 20;
+                legSkillDmg = 0;
+                legUltimateDmg = 0;
+                nigthmare_Count++;
                 break;
         }
 
@@ -143,6 +173,18 @@ public class Combat_Script : MonoBehaviour
                 bodySkillAdrenaline = 15;
                 cyber_Count++;
                 break;
+            case "Peptizing ooze":
+                bodySkillDmg = 30;
+                bodySkillAdrenaline = 0;
+                corrosive_Count++;
+                break;
+            case "Frighten":
+                bodySkillDmg = 0;
+                bodySkillAdrenaline = 0;
+                nigthmare_Count++;
+                
+                break;
+            
         }
         nameArmSkill.text = ArmSkill;
         nameLegSkill.text = LegSkill;
@@ -206,8 +248,6 @@ public class Combat_Script : MonoBehaviour
                 break;
             case 3:
                 //double dmg
-                
-                
                 armFinalDmg = armSkillDmg*2;
                 legFinalDmg = legSkillDmg*2;
                 bodyFinalDmg = bodySkillDmg*2;
@@ -216,6 +256,22 @@ public class Combat_Script : MonoBehaviour
                 // //playerUnit.damage = playerUnitData.baseDamage * 2;
                 // dmgBoost = true;
                 // dmgNormal = false;
+                break;
+            
+            case 4:
+                armFinalDmg = armSkillDmg-10;
+                legFinalDmg = legSkillDmg-10;
+                bodyFinalDmg = bodySkillDmg-10;
+                armUltimateDmgFinal = armUltimateDmg-10;
+                Debug.Log("reduced damage");
+                break;
+            
+            case 5:
+                armFinalDmg = 0;
+                legFinalDmg = 0;
+                bodyFinalDmg = 0;
+                armUltimateDmgFinal = 0;
+                Debug.Log("NULL damage");
                 break;
             
         }
@@ -233,6 +289,7 @@ public class Combat_Script : MonoBehaviour
                 dmgNormal = true;
                 dmg0 = false;
                 canMove = true;
+                burn = false;
                 Debug.Log("enemy damage normal");
                 break;
             case 1:
@@ -242,6 +299,7 @@ public class Combat_Script : MonoBehaviour
                 dmg0 = false;
                 dmgMinus = true;
                 canMove = true;
+                burn = false;
                 Debug.Log("enemy does less damage");
                 break;
             case 2://damage 0
@@ -250,6 +308,7 @@ public class Combat_Script : MonoBehaviour
                 dmg0 = true;
                 dmgMinus = false;
                 canMove = true;
+                burn = false;
                 Debug.Log("enemy damage 0");
                 break;
             case 3://skip turn
@@ -258,8 +317,14 @@ public class Combat_Script : MonoBehaviour
                 dmg0 = true;
                 dmgMinus = false;
                 canMove = false;
+                burn = false;
                 Debug.Log("enemy can't move");
                 break;
+            case 4:
+                burn = true;
+                Debug.Log("Burning");
+                break;
+            
         }
     }
     
@@ -314,6 +379,8 @@ public class Combat_Script : MonoBehaviour
         accion = false;
         StartCoroutine(Skill3());
     }
+
+
 
     IEnumerator Attack()
     {
@@ -371,6 +438,53 @@ public class Combat_Script : MonoBehaviour
                     modifierID = 0;
                 }
                 break;
+            case "Redox":
+                if (playerUnit.currentAdrenaline < 100)
+                {
+                    enemyIsDead = enemyUnit.TakeDamage(armFinalDmg);
+                    playerUnit.GetAdrenaline(armSkillAdrenaline);
+                    UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    texto.text = "Redox"+" deal "+armFinalDmg +" to "+enemyUnit.unitName;
+                    playerModifier = false;
+                    modifierID = 0;
+                }
+                else
+                {
+                    enemyIsDead = enemyUnit.TakeDamage(armUltimateDmgFinal);
+                    UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                    texto.text = "Liquify "+" deal "+armUltimateDmgFinal + "  to " + enemyUnit.unitName;
+                    playerUnit.ResetAdrenaline();
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    modifierID = 0;
+                    playerModifier = false;
+                }
+                break;
+            case "Spirit burn":
+                if (playerUnit.currentAdrenaline < 100)
+                {
+                    enemyIsDead = enemyUnit.TakeDamage(armFinalDmg);
+                    playerUnit.GetAdrenaline(armSkillAdrenaline);
+                    UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    texto.text = "Spirit burn"+" deal "+armFinalDmg +" to "+enemyUnit.unitName;
+                    playerModifier = false;
+                    enemyModifier = true;
+                    modifierID = 4;
+                }
+                else
+                {
+                    enemyIsDead = enemyUnit.TakeDamage(armUltimateDmgFinal);
+                    UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                    texto.text = "Nightmarish burn "+" deal "+armUltimateDmgFinal + "  to " + enemyUnit.unitName;
+                    playerModifier = false;
+                    playerUnit.ResetAdrenaline();
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    enemyModifier = true;
+                    modifierID = 4;
+                }
+                break;
+            
         }
         yield return new WaitForSeconds(2f);
         if (enemyIsDead)
@@ -423,6 +537,28 @@ public class Combat_Script : MonoBehaviour
                         
                     }
                     break;
+                case "Slimy step":
+                    if (playerUnit.currentAdrenaline < 100)
+                    {
+                        playerUnit.GetAdrenaline(legSkillAdrenaline);
+                        //attack buff
+                        UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                        texto.text = LegSkill+" boost "+legSkillAdrenaline+" adrenaline";
+                        modifierID = 0;
+                        playerModifier = false;
+                        
+                    }
+                    else
+                    {
+                        //ulti charge
+                        modifierID = 0;
+                        playerModifier = false;
+                        playerUnit.ResetAdrenaline();
+                        texto.text = "Slimy trail deals "+legUltimateDmg+ " and boost"+legSkillAdrenaline+" adrenaline";
+                        UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                        
+                    }
+                    break;
             }
         yield return new WaitForSeconds(2f);
         if (enemyIsDead)
@@ -446,6 +582,7 @@ public class Combat_Script : MonoBehaviour
                 UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                 texto.text = BodySkill+" boost "+bodySkillAdrenaline+" adrenaline";
                 playerModifier = false;
+                modifierID = 0;
                 break;
             case "Heavy duty armor":
                 if (playerUnit.currentAdrenaline < 100)
@@ -454,6 +591,8 @@ public class Combat_Script : MonoBehaviour
                     UI_Instance.SetEnemyHP(enemyUnit.currentHP);
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     texto.text = BodySkill+" boost "+bodySkillAdrenaline+" adrenaline";
+                    FXManager.Instance.PlayPlayerAnimation("Shield");
+                    Debug.Log("fx ");
                     
                     //shield buff applier
                     enemyModifier = true;
@@ -468,6 +607,31 @@ public class Combat_Script : MonoBehaviour
                     enemyModifier = true;
                     modifierID = 2;
                     texto.text = "Mechanical Bulwark: Don't take any damage next turn";
+                    playerUnit.ResetAdrenaline();
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    playerModifier = false;
+                    
+                }
+                break;
+            case "Peptizing ooze":
+                if (playerUnit.currentAdrenaline < 100)
+                {
+                    enemyIsDead = enemyUnit.TakeDamage(bodySkillDmg);
+                    UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                    UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    texto.text = "Peptizing ooze deals "+bodySkillDmg+" to "+ enemyUnit.unitName;
+                    playerModifier = false;
+                    modifierID = 0;
+                    
+                }
+                else
+                {
+                    //ulti Mechanical Bulwark
+                    modifierID = 0;
+                    playerUnit.Heal(playerUnit.maxHP/2);
+                    UI_Instance.SetPlayerHP(playerUnit.currentHP);
+                    texto.text = "Absorption heals "+ playerUnit.maxHP/2;
+                    FXManager.Instance.PlayPlayerAnimation("Heal");
                     playerUnit.ResetAdrenaline();
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     playerModifier = false;
@@ -519,6 +683,10 @@ public class Combat_Script : MonoBehaviour
             Debug.Log("enemy modifier");
 
         }
+        else
+        {
+            EnemyResetBuff();
+        }
         // si no tiene stun
         if (canMove == true)
         {
@@ -564,19 +732,28 @@ public class Combat_Script : MonoBehaviour
             // UI_Instance.SetPlayerHP(playerUnit.currentHP);
             //
             //
+            // yield return new WaitForSeconds(2f);
+            // if (isDead)
+            // {
+            //     state = BattleState.LOSE;
+            //     StartCoroutine(EndBattle());
+            // }
+            // else
+            // {
+            //     state = BattleState.PLAYER;
+            //     enemyModifier = false;
+            //     PlayerTurn();
+            // } 
             yield return new WaitForSeconds(2f);
-            if (isDead)
+            if (burn)
             {
-                state = BattleState.LOSE;
-                StartCoroutine(EndBattle());
-            }
-            else
-            {
-                state = BattleState.PLAYER;
+                isDead = enemyUnit.TakeDamage(20);
+                //actualizar hp enemigo
+                UI_Instance.SetEnemyHP(enemyUnit.currentHP);
+                texto.text = "Nightmareish burning"+" deals 20"+" damage to " + enemyUnit.unitName;
                 enemyModifier = false;
-                PlayerTurn();
-            } 
-            yield return new WaitForSeconds(2f);
+
+            }
             if (isDead)
             {
                 state = BattleState.LOSE;
@@ -584,6 +761,7 @@ public class Combat_Script : MonoBehaviour
             }
             else
             {
+                
                 state = BattleState.PLAYER;
                 enemyModifier = false;
                 PlayerTurn();
@@ -601,6 +779,16 @@ public class Combat_Script : MonoBehaviour
        
     }
 
+    public void EnemyResetBuff()
+    {
+          dmg0=false;
+          dmgMinus=false;
+          dmgBoost=false;
+          phantomEffect=false;
+          burn=false;
+          canMove = true;
+          dmgNormal=true;
+    }
     public bool IA_EnemyLv1()
     {
         
@@ -609,14 +797,14 @@ public class Combat_Script : MonoBehaviour
         
         switch (enemigo)
         {
-            case "Battle0":
+            case "Cyborg":
                aux = Battle0_Lv1();
                 break;
-            case "Battle1":
-                Battle1_Lv1();
+            case "Corrosive":
+                aux = Battle1_Lv1();
                 break;
-            case "Battle2":
-                
+            case "Phantom":
+                aux = Battle2_Lv1();
                 break;
             case "Boss":
                 break;
@@ -627,15 +815,29 @@ public class Combat_Script : MonoBehaviour
 
     public bool Battle0_Lv1()
     {
+        
+        int dmgFinal = 0;
 
-        int dmgFinal = enemyUnitData.baseDamage;
+        switch (contadorLv1)
+        {
+            case 0:
+                dmgFinal = mediumDamage;
+                break;
+            case 1:
+                dmgFinal = mediumDamage;
+                break;
+            case 2:
+                dmgFinal = 0;
+                break;
+        }
+        
         if (dmg0)
         {
             dmgFinal = 0;
         Debug.Log("Dont take any damage");
         }
 
-        if (dmgMinus)
+        if (dmgMinus && dmgFinal!=0)
         {
             dmgFinal = dmgFinal - 10;
         Debug.Log("reduced damage");
@@ -643,7 +845,7 @@ public class Combat_Script : MonoBehaviour
 
         if (dmgNormal)
         {
-            dmgFinal = enemyUnitData.baseDamage;
+            dmgFinal = dmgFinal;
 
         }
 
@@ -660,20 +862,203 @@ public class Combat_Script : MonoBehaviour
             }
             UI_Instance.SetPlayerShield(playerShield);
         }
-        
-        texto.text = enemyUnit.unitName + " deals " + dmgFinal+" damage";
+
+        switch (contadorLv1)
+        {
+            case 0:
+                texto.text = enemyUnit.unitName + " uses Calculated stab";
+                break;
+            case 1:
+                texto.text = enemyUnit.unitName + " uses Calculated slash ";
+                break;
+            case 2:
+                texto.text = enemyUnit.unitName + " retreats";
+                //enemy shield
+                FXManager.Instance.PlayEnemyAnimation("Shield");
+                modifierID = 4;
+                playerModifier = true;
+                break;
+        }
+       
         bool isDead = playerUnit.TakeDamage(dmgFinal);
         UI_Instance.SetPlayerHP(playerUnit.currentHP);
 
+        contadorLv1++;
+        if (contadorLv1 >= 2)
+        {
+            contadorLv1 = 0;
+        }
         return isDead;
     }
-    public void Battle1_Lv1()
+    public bool Battle1_Lv1()
     {
+        int dmgFinal = 0;
+
+        switch (contadorLv1)
+        {
+            case 0:
+                dmgFinal = mediumDamage;
+                break;
+            case 1:
+                dmgFinal = lowDamage;
+                break;
+            case 2:
+                dmgFinal = 0;
+                break;
+        }
         
+        if (dmg0)
+        {
+            dmgFinal = 0;
+            Debug.Log("Dont take any damage");
+        }
+
+        if (dmgMinus && dmgFinal!=0)
+        {
+            dmgFinal = dmgFinal - 10;
+            Debug.Log("reduced damage");
+        }
+
+        if (dmgNormal)
+        {
+            dmgFinal = dmgFinal;
+
+        }
+
+        if (playerShield != 0)
+        {
+            int auxShield = playerShield;
+            playerShield = playerShield - dmgFinal;
+            dmgFinal = dmgFinal - auxShield;
+            //playerShield = playerShield-dmgFinal;
+            //playerShield = playerShield-dmgFinal;
+            if (dmgFinal < 0)
+            {
+                dmgFinal = 0;
+            }
+            UI_Instance.SetPlayerShield(playerShield);
+        }
+
+        switch (contadorLv1)
+        {
+            case 0:
+                texto.text = enemyUnit.unitName + " uses Wide slash";
+                break;
+            case 1:
+                texto.text = enemyUnit.unitName + " uses Splatter, inflict Armor diluted";
+                break;
+            case 2:
+                texto.text = enemyUnit.unitName + " uses Oozing regeneration";
+                //enemy heals
+                int heals = enemyUnit.maxHP / 5;
+                int finalHeal = enemyUnit.currentHP + heals;
+                
+                UI_Instance.SetEnemyHP(finalHeal);
+                
+                break;
+        }
+       
+        bool isDead = playerUnit.TakeDamage(dmgFinal);
+        UI_Instance.SetPlayerHP(playerUnit.currentHP);
+
+        contadorLv1++;
+        if (contadorLv1 >= 2)
+        {
+            contadorLv1 = 0;
+        }
+        return isDead;
     }
-    public void Battle2_Lv1()
+    public bool Battle2_Lv1()
     {
+        int dmgFinal = 0;
         
+
+        switch (contadorLv1)
+        {
+            case 0:
+                dmgFinal = lowDamage;
+                
+                break;
+            case 1:
+                dmgFinal = 0;
+                if (phantomEffect)
+                {
+                    dmgFinal = highDamage;
+                }
+                // si esta con debuff phantom pega high
+                break;
+            case 2:
+                dmgFinal = 0;
+                //no pega se pone incorporeo
+                break;
+        }
+        
+        if (dmg0)
+        {
+            dmgFinal = 0;
+            Debug.Log("Dont take any damage");
+        }
+
+        if (dmgMinus && dmgFinal!=0)
+        {
+            dmgFinal = dmgFinal - 10;
+            Debug.Log("reduced damage");
+        }
+
+        if (dmgNormal)
+        {
+            dmgFinal = dmgFinal;
+
+        }
+
+        if (playerShield != 0)
+        {
+            int auxShield = playerShield;
+            playerShield = playerShield - dmgFinal;
+            dmgFinal = dmgFinal - auxShield;
+            //playerShield = playerShield-dmgFinal;
+            //playerShield = playerShield-dmgFinal;
+            if (dmgFinal < 0)
+            {
+                dmgFinal = 0;
+            }
+            UI_Instance.SetPlayerShield(playerShield);
+        }
+
+        switch (contadorLv1)
+        {
+            case 0:
+                texto.text = enemyUnit.unitName + " uses Gaze of hatred";
+                phantomEffect = true;
+                break;
+            case 1:
+               
+                if (phantomEffect==false)
+                {
+                    texto.text = enemyUnit.unitName + " uses Flames of the Aberration, but fails";
+                }
+                else
+                {
+                    texto.text = enemyUnit.unitName + " uses Flames of the Aberration"; 
+                }
+                break;
+            case 2:
+                texto.text = enemyUnit.unitName + " uses Incorporeal";
+                //incorporeal;
+                modifierID = 5;
+                playerModifier = true;
+                break;
+        }
+       
+        bool isDead = playerUnit.TakeDamage(dmgFinal);
+        UI_Instance.SetPlayerHP(playerUnit.currentHP);
+
+        contadorLv1++;
+        if (contadorLv1 >= 2)
+        {
+            contadorLv1 = 0;
+        }
+        return isDead;
     }
 
 }

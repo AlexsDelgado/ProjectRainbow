@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Battle 1
   m_EditorClassIdentifier: 
   isPlayer: 0
-  unitName: Phantom
+  unitName: Corrsive
   unitLevel: 1
   baseDamage: 35
   baseDef: 5
@@ -22,3 +22,4 @@ MonoBehaviour:
   arm: base
   body: base
   leg: base
+  details: info before combat

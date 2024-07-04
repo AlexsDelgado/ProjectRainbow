@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
-    public FXManager Instance;
+    public static FXManager Instance;
     [SerializeField] private Animator player;
     [SerializeField] private Animator enemy;
 
@@ -19,6 +20,7 @@ public class FXManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
     public void PlayPlayerAnimation(string trigger)
     {

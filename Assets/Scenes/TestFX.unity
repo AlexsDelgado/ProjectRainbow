@@ -364,9 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005c5904fa42c374d98d0e6703c7f7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
-  player: {fileID: 637263868}
-  enemy: {fileID: 0}
+  player: {fileID: 1044164394}
+  enemy: {fileID: 637263868}
 --- !u!4 &988448306
 Transform:
   m_ObjectHideFlags: 0
