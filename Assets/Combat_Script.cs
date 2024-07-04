@@ -759,11 +759,16 @@ public class Combat_Script : MonoBehaviour
                 UI_Instance.SetEnemyHP(enemyUnit.currentHP);
                 texto.text = "Nightmareish burning"+" deals 20"+" damage to " + enemyUnit.unitName;
                 enemyModifier = false;
+                if (isDead)
+                {
+                    state = BattleState.WIN;
+                    StartCoroutine(EndBattle());
+                }
 
             }
             if (isDead)
             {
-                state = BattleState.WIN;
+                state = BattleState.LOSE;
                 StartCoroutine(EndBattle());
             }
             else
