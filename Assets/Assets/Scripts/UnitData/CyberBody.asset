@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1305ac85870741fb9498bfb5bac93f5d, type: 3}
-  m_Name: Corrosive Leg
+  m_Name: CyberBody
   m_EditorClassIdentifier: 
-  id: 8
-  name: CorrosiveLeg
-  info: Legs legs
-  type: Legs
-  elemental: Corrosive
+  name: Heavy duty armor
+  info: Gain 15 adrenaline Gain 75 shield Take reduced damage for the next turn
+  type: Body
+  elemental: Cyber

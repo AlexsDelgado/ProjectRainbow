@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,13 +16,6 @@ public class UI_Rewards : MonoBehaviour
    [SerializeField] public SkillData bodyData;
    public int newSkill;
 
-   public TextMeshProUGUI armSkill;
-   public TextMeshProUGUI legSkill;
-   public TextMeshProUGUI bodySkill;
-
-   public TextMeshProUGUI armInfo;
-   public TextMeshProUGUI legInfo;
-   public TextMeshProUGUI bodyInfo;
 
    private void Start()
    {
@@ -35,56 +27,48 @@ public class UI_Rewards : MonoBehaviour
       // armData = arm.GetComponent<SkillData>();
       // legData = leg.GetComponent<SkillData>();
       // bodyData = body.GetComponent<SkillData>();
-      
-      armInfo.text = armData.info;
-      legInfo.text = legData.info;
-      bodyInfo.text = bodyData.info;
-
-      armSkill.text = armData.name;
-      legSkill.text = legData.name;
-      bodySkill.text = bodyData.name;
-      
 
       newSkill = GameManager.Instance.newSkillCount;
    }
 
    public void ArmSelected()
    {
-      newSkillGM();
-      //agrega funcionalidad al combate
-      GameManager.Instance.playerData.arm = armData.name;
-      //salvado
-      //GameManager.Instance.savedata
+      newSkillGM(armData);
+        GameManager.Instance.armSkill.SkillName = armData.name;
+        GameManager.Instance.armSkill.SkillInfo = armData.info;
    }
    public void LegSelected()
    {
-      newSkillGM();
-      GameManager.Instance.playerData.leg = legData.name;
+      newSkillGM(legData);
+        GameManager.Instance.legSkill.SkillName = legData.name;
+        GameManager.Instance.legSkill.SkillInfo = legData.info;
    }
    public void BodySelected()
    {
-      newSkillGM();
-      GameManager.Instance.playerData.body = bodyData.name;
+      newSkillGM(bodyData);
+        GameManager.Instance.chestSkill.SkillName = bodyData.name;
+        GameManager.Instance.chestSkill.SkillInfo = bodyData.info;
    }
-   public void newSkillGM()
+   public void newSkillGM(SkillData ability)
    {
       
-      // switch (newSkill)
-      // {
-      //    case 0:
-      //       GameManager.Instance.newSkill1 = ability;
-      //       break;
-      //    case 1:
-      //       GameManager.Instance.newSkill2 = ability;
-      //       break;
-      //    case 2:
-      //       GameManager.Instance.newSkill3 = ability;
-      //       break;
-      // }
+      switch (newSkill)
+      {
+         case 0:
+            GameManager.Instance.newSkill1 = ability;
+            break;
+         case 1:
+            GameManager.Instance.newSkill2 = ability;
+            break;
+         case 2:
+            GameManager.Instance.newSkill3 = ability;
+            break;
+      }
 
       GameManager.Instance.newSkillCount++;
+        GameManager.Instance.victoriesQuantity++;
       GameManager.Instance.tutorial = true;
-      SceneManager.LoadScene("LevelSelector");
+      SceneManager.LoadScene("MainMenu");
 
    }
 

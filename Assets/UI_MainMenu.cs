@@ -14,7 +14,7 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject playerMenu2;
     public GameObject combatMap;
     public GameObject playerStats;
-    
+
     //FightMenuButtons
     public Button combat0;
     public Button combat1;
@@ -23,7 +23,7 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject pfEnemy0;
     public GameObject pfEnemy1;
     public GameObject pfEnemy2;
-    
+
     //playerMenuSkills
     public GameObject armsButton;
     public GameObject bodyButton;
@@ -34,8 +34,8 @@ public class UI_MainMenu : MonoBehaviour
     public GameObject bodySkills;
     public GameObject legSkills;
 
-    
-    
+
+
     // public GameObject armSkill1;
     // public GameObject armSkill1Info;
     //
@@ -64,7 +64,7 @@ public class UI_MainMenu : MonoBehaviour
     // public GameObject armDisabled;
     // public GameObject legDisabled;
     // public GameObject bodyDisabled;
-    
+
     public void setStartSkills()
     {
         if (GameManager.Instance.newSkillCount == 0)
@@ -78,7 +78,7 @@ public class UI_MainMenu : MonoBehaviour
             switch (GameManager.Instance.newSkillCount)
             {
                 case 1:
-                   checkSkills(GameManager.Instance.newSkill1);
+                    checkSkills(GameManager.Instance.newSkill1);
                     break;
                 case 2:
                     checkSkills(GameManager.Instance.newSkill1);
@@ -112,7 +112,7 @@ public class UI_MainMenu : MonoBehaviour
         //         break;
         // }
     }
-    
+
     public void fightMenuActive()
     {
         fightMenu1.SetActive(false);
@@ -178,11 +178,11 @@ public class UI_MainMenu : MonoBehaviour
 
     public void ReturnPlayerMenu()
     {
-       CloseAllInfo(); 
-       CloseSkillsMenu();
-       armsButton.SetActive(true);
-       bodyButton.SetActive(true);
-       legsButton.SetActive(true);
+        CloseAllInfo();
+        CloseSkillsMenu();
+        armsButton.SetActive(true);
+        bodyButton.SetActive(true);
+        legsButton.SetActive(true);
     }
 
     public void CloseAllInfo()
@@ -227,7 +227,7 @@ public class UI_MainMenu : MonoBehaviour
         CloseAllInfo();
         // bodySkill3Info.SetActive(true);
     }
-    
+
     public void LegSkill1()
     {
         CloseAllInfo();
@@ -248,7 +248,7 @@ public class UI_MainMenu : MonoBehaviour
     public void SelectSkillArm(string skillName)
     {
         GameManager.Instance.playerData.arm = skillName;
-    }   
+    }
     public void SelectSkillBody(string skillName)
     {
         GameManager.Instance.playerData.body = skillName;
@@ -277,7 +277,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     private void setEnemy1()
     {
-        
+
         if (GameManager.Instance.tutorial == true)
         {
             GameManager.Instance.SetEnemy(pfEnemy1);
@@ -287,12 +287,12 @@ public class UI_MainMenu : MonoBehaviour
         {
             Debug.Log("Try again after win combat 0");
         }
-        
-        
+
+
     }
     private void setEnemy2()
     {
-        
+
         if (GameManager.Instance.tutorial == true)
         {
             GameManager.Instance.SetEnemy(pfEnemy2);
@@ -307,6 +307,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        GameManager.Instance.SaveAndExit();
         SceneManager.LoadScene("MainMenu");
     }
 }
