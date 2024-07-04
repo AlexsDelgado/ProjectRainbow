@@ -1148,6 +1148,10 @@ MonoBehaviour:
   newSkill1: {fileID: 0}
   newSkill2: {fileID: 0}
   newSkill3: {fileID: 0}
+  victoriesQuantity: 0
+  legSkill: {fileID: 11400000, guid: 298caddf1a5e94f4c83c61c444b612db, type: 2}
+  armSkill: {fileID: 11400000, guid: b396ddafc34df8d45a32429b7ad21336, type: 2}
+  chestSkill: {fileID: 11400000, guid: 632783057a847564491801f51e4d07c0, type: 2}
 --- !u!1 &1184169025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e6d793553db53419bddaa163609178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadButton: {fileID: 29941331}
 --- !u!1 &1525796563
 GameObject:
   m_ObjectHideFlags: 0

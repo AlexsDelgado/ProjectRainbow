@@ -307,6 +307,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        GameManager.Instance.SaveAndExit();
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -1,8 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Button loadButton;
+    private void Start()
+    {
+        if (SaveControl.DataExists())
+        {
+            loadButton.interactable = true;
+        }
+        else
+        {
+            loadButton.interactable = false;
+        }
+    }
     public void ExitGame()
     {
         Application.Quit();
@@ -15,12 +28,14 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        //Cuando haya sistema de guardado se podra cargar desde aca
+        GameManager.Instance.LoadData();
+        LoadLevelByName("LevelSelector");
     }
 
     public void StartNewGame()
     {
-        //Cuando haya sistema de guardado esta funcion eliminara los datos que existan.
+        SaveControl.DeletePlayerData();
+        GameManager.Instance.SetPlayerDefaultStats();
         LoadLevelByName("LevelSelector");
     }
 }

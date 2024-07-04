@@ -54,17 +54,22 @@ public class UI_Rewards : MonoBehaviour
       //agrega funcionalidad al combate
       GameManager.Instance.playerData.arm = armData.name;
       //salvado
-      //GameManager.Instance.savedata
+      GameManager.Instance.armSkill.SkillName = armData.name;
+        GameManager.Instance.armSkill.SkillInfo = armData.info;
    }
    public void LegSelected()
    {
       newSkillGM();
       GameManager.Instance.playerData.leg = legData.name;
+        GameManager.Instance.legSkill.SkillName = legData.name;
+        GameManager.Instance.legSkill.SkillInfo = legData.info;
    }
    public void BodySelected()
    {
       newSkillGM();
       GameManager.Instance.playerData.body = bodyData.name;
+        GameManager.Instance.chestSkill.SkillName = bodyData.name;
+        GameManager.Instance.chestSkill.SkillInfo = bodyData.info;
    }
    public void newSkillGM()
    {
