@@ -101,18 +101,89 @@ public class UI_Rewards : MonoBehaviour
 
    public void ChangeSprite(int id)
    {
-      
-      switch (id)
+      if (GameManager.Instance.victoriesQuantity > 1||GameManager.Instance.armCounter||GameManager.Instance.legCounter ||GameManager.Instance.bodyCounter)
       {
-         case 0:
-            changeSprite.ChangeSprite("C_H_H");
-            break;
-         case 1:
-            changeSprite.ChangeSprite("H_C_H");
-            break;
-         case 2:
-            changeSprite.ChangeSprite("H_H_C");
-            break;
+         //arm
+         if (GameManager.Instance.armCounter)
+         {
+            switch (id)
+            {
+               case 0:
+                  GameManager.Instance.armCounter = true;
+                  changeSprite.ChangeSprite("C_H_H");
+                  break;
+               case 1:
+                  GameManager.Instance.bodyCounter = true;
+                  changeSprite.ChangeSprite("P_C_H");
+                  break;
+               case 2:
+                  GameManager.Instance.legCounter = true;
+                  changeSprite.ChangeSprite("P_H_C");
+                  break;
+            }
+            
+         }
+         //body
+         if (GameManager.Instance.bodyCounter)
+         {
+            switch (id)
+            {
+               case 0:
+                  GameManager.Instance.armCounter = true;
+                  changeSprite.ChangeSprite("C_P_H");
+                  break;
+               case 1:
+                  GameManager.Instance.bodyCounter = true;
+                  changeSprite.ChangeSprite("H_C_H");
+                  break;
+               case 2:
+                  GameManager.Instance.legCounter = true;
+                  changeSprite.ChangeSprite("H_P_C");
+                  break;
+            }
+         }
+         
+         //legs
+         if (GameManager.Instance.legCounter)
+         {
+            switch (id)
+            {
+               case 0:
+                  GameManager.Instance.armCounter = true;
+                  changeSprite.ChangeSprite("C_H_P");
+                  break;
+               case 1:
+                  GameManager.Instance.bodyCounter = true;
+                  changeSprite.ChangeSprite("H_C_P");
+                  break;
+               case 2:
+                  GameManager.Instance.legCounter = true;
+                  changeSprite.ChangeSprite("H_H_C");
+                  break;
+            }
+         }
       }
+      else
+      {
+         switch (id)
+         {
+            case 0:
+               GameManager.Instance.armCounter = true;
+               changeSprite.ChangeSprite("C_H_H");
+               break;
+            case 1:
+               GameManager.Instance.bodyCounter = true;
+               changeSprite.ChangeSprite("H_C_H");
+               break;
+            case 2:
+               GameManager.Instance.legCounter = true;
+               changeSprite.ChangeSprite("H_H_C");
+               break;
+         }
+         
+         
+         
+      }
+     
    }
 }

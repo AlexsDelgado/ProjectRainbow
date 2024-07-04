@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public SkillData newSkill3;
 
     public int victoriesQuantity;
+    public bool armCounter=false;
+    public bool bodyCounter=false;
+    public bool legCounter=false;
 
 
     public ToSaveData legSkill;
