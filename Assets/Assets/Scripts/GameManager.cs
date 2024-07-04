@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UnitData playerData;
     [SerializeField] private UnitData[] enemySO;
 
+    
     public bool tutorial = false;
     public int newSkillCount = 0;
     public SkillData newSkill1;
@@ -106,13 +107,27 @@ public class GameManager : MonoBehaviour
         unitSO = null;
         if (battle)
         {
-            SceneManager.LoadScene("SkillReward");
-            //tutorial = true;
-            
+            tutorial = true;
+            string enemigo = enemyPrefab.GetComponent<Unit>().unitName;
+            switch (enemigo)
+            {
+                case "Battle0":
+                    SceneManager.LoadScene("SkillReward0"); 
+                    break;
+                case "Battle1":
+                    SceneManager.LoadScene("SkillReward1"); 
+                    break;
+                case "Battle2":
+                    SceneManager.LoadScene("SkillReward2"); 
+                    break;
+                case "Boss":
+                    SceneManager.LoadScene("SkillReward3"); 
+                    break;
+            }
         }
         else
         {
-            SceneManager.LoadScene("MainMenu"); 
+            SceneManager.LoadScene("LevelSelector"); 
         }
         
     }

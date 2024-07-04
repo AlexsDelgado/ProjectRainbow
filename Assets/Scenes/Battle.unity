@@ -1810,6 +1810,10 @@ MonoBehaviour:
   nameLegSkill: {fileID: 1690293207}
   nameBodySkill: {fileID: 1759549479}
   adrenaline: 0
+  nightmare_HealthModifier: 10
+  cyber_HealthModifier: 7
+  corrosive_HealthModifier: 5
+  modifierID: 0
   playerShield: 0
   enemyShield: 0
 --- !u!1 &549923116
