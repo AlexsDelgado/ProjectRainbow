@@ -266,6 +266,16 @@ public class UI_MainMenu : MonoBehaviour
         combat0.onClick.AddListener(setEnemy0);
         combat1.onClick.AddListener(setEnemy1);
         combat2.onClick.AddListener(setEnemy2);
+        if (GameManager.Instance.victoriesQuantity >= 1)
+        {
+            combat1.interactable = true;
+            combat2.interactable = true;
+        }
+        else
+        {
+            combat1.interactable = false;
+            combat2.interactable = false;
+        }
         setStartSkills();
         playerStats.SetActive(false);
     }

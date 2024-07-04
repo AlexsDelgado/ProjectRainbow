@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
-using UnityEngine;
 
 public enum BattleState{START, PLAYER, ENEMY, WIN, LOSE}
 
@@ -597,7 +596,7 @@ public class Combat_Script : MonoBehaviour
                     //shield buff applier
                     enemyModifier = true;
                     modifierID = 1;
-                    playerShield += 75;
+                    playerShield += 25;
                     playerModifier = false;
                     UI_Instance.SetPlayerShield(playerShield);
                 }

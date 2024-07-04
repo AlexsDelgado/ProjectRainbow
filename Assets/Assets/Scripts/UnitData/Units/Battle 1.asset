@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Battle 1
   m_EditorClassIdentifier: 
   isPlayer: 0
-  unitName: Corrsive
+  unitName: Corrosive
   unitLevel: 1
   baseDamage: 35
   baseDef: 5
