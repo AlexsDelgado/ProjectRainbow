@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     //combat 
-    [SerializeField] private GameObject PlayerPF;
+    [SerializeField] public GameObject PlayerPF;
     [SerializeField] public GameObject enemyPrefab = null;
     [SerializeField] public UnitData unitSO = null;
     [SerializeField] public UnitData playerData;
     [SerializeField] private UnitData[] enemySO;
-
+    public Sprite defaultPlayer;
     public int newSkillCount = 0;
     public SkillData newSkill1;
     public SkillData newSkill2;
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public ToSaveData armSkill;
     public ToSaveData chestSkill;
     private PlayerData playerSaveData;
+    
 
     //singleton
     private void Awake()
@@ -136,6 +137,14 @@ public class GameManager : MonoBehaviour
         chestSkill.SkillName = "Deep focus";
         playerData.baseDef = 10;
         playerData.baseMaxHp = 100;
+        RestartSprite();
         Debug.Log("Set defaul values");
+        
     }
+    
+    public void RestartSprite()
+    {
+        PlayerPF.GetComponent<SpriteRenderer>().sprite =defaultPlayer ;
+    }
+    
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,8 @@ public class UI_Rewards : MonoBehaviour
    public TextMeshProUGUI armInfo;
    public TextMeshProUGUI legInfo;
    public TextMeshProUGUI bodyInfo;
+
+   public UpdateScript changeSprite;
 
    private void Start()
    {
@@ -51,6 +54,7 @@ public class UI_Rewards : MonoBehaviour
    public void ArmSelected()
    {
       newSkillGM();
+      ChangeSprite(0);
       //agrega funcionalidad al combate
       GameManager.Instance.playerData.arm = armData.name;
       //salvado
@@ -60,6 +64,7 @@ public class UI_Rewards : MonoBehaviour
    public void LegSelected()
    {
       newSkillGM();
+      ChangeSprite(2);
       GameManager.Instance.playerData.leg = legData.name;
         GameManager.Instance.legSkill.SkillName = legData.name;
         GameManager.Instance.legSkill.SkillInfo = legData.info;
@@ -67,9 +72,10 @@ public class UI_Rewards : MonoBehaviour
    public void BodySelected()
    {
       newSkillGM();
+      ChangeSprite(1);
       GameManager.Instance.playerData.body = bodyData.name;
-        GameManager.Instance.chestSkill.SkillName = bodyData.name;
-        GameManager.Instance.chestSkill.SkillInfo = bodyData.info;
+      GameManager.Instance.chestSkill.SkillName = bodyData.name;
+      GameManager.Instance.chestSkill.SkillInfo = bodyData.info;
    }
    public void newSkillGM()
    {
@@ -93,4 +99,20 @@ public class UI_Rewards : MonoBehaviour
 
    }
 
+   public void ChangeSprite(int id)
+   {
+      
+      switch (id)
+      {
+         case 0:
+            changeSprite.ChangeSprite("C_H_H");
+            break;
+         case 1:
+            changeSprite.ChangeSprite("H_C_H");
+            break;
+         case 2:
+            changeSprite.ChangeSprite("H_H_C");
+            break;
+      }
+   }
 }

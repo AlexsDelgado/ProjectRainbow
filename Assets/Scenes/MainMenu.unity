@@ -1143,7 +1143,7 @@ MonoBehaviour:
   unitSO: {fileID: 0}
   playerData: {fileID: 11400000, guid: 4c8014ca49f5cf144b29266c843455f8, type: 2}
   enemySO: []
-  tutorial: 0
+  defaultPlayer: {fileID: 21300000, guid: 576ad3752ee12d2428dac5ba7d613f5c, type: 3}
   newSkillCount: 0
   newSkill1: {fileID: 0}
   newSkill2: {fileID: 0}
