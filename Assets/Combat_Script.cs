@@ -411,6 +411,7 @@ public class Combat_Script : MonoBehaviour
                 //texto.text = "Skill name gives you 50 adrenaline // buff comment";
                 playerModifier = false;
                 modifierID = 0;
+                FXManager.Instance.PlayEnemyAnimation("Impact");
                 break;
             case "Mechanical claws":
                 if (playerUnit.currentAdrenaline < 100)
@@ -422,6 +423,7 @@ public class Combat_Script : MonoBehaviour
                     texto.text = ArmSkill+" deal "+armFinalDmg +" to "+enemyUnit.unitName;
                     playerModifier = false;
                     modifierID = 0;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 else
                 {
@@ -433,6 +435,7 @@ public class Combat_Script : MonoBehaviour
                     playerUnit.ResetAdrenaline();
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     modifierID = 0;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 break;
             case "Redox":
@@ -445,16 +448,18 @@ public class Combat_Script : MonoBehaviour
                     texto.text = "Redox"+" deal "+armFinalDmg +" to "+enemyUnit.unitName;
                     playerModifier = false;
                     modifierID = 0;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 else
                 {
                     enemyIsDead = enemyUnit.TakeDamage(armUltimateDmgFinal);
                     UI_Instance.SetEnemyHP(enemyUnit.currentHP);
-                    texto.text = "Liquify "+" deal "+armUltimateDmgFinal + "  to " + enemyUnit.unitName;
+                    texto.text = "Liquify "+" deals "+armUltimateDmgFinal + "  to " + enemyUnit.unitName;
                     playerUnit.ResetAdrenaline();
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     modifierID = 0;
                     playerModifier = false;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 break;
             case "Spirit burn":
@@ -468,6 +473,7 @@ public class Combat_Script : MonoBehaviour
                     playerModifier = false;
                     enemyModifier = true;
                     modifierID = 4;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 else
                 {
@@ -479,6 +485,7 @@ public class Combat_Script : MonoBehaviour
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     enemyModifier = true;
                     modifierID = 4;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                 }
                 break;
             
@@ -508,6 +515,7 @@ public class Combat_Script : MonoBehaviour
                     playerModifier = false;
                     modifierID = 0;
                     //modifier applier
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                    
                     break;
                 case "Offensive maneuvers":
@@ -606,6 +614,7 @@ public class Combat_Script : MonoBehaviour
                     texto.text = "Mechanical Bulwark: Don't take any damage next turn";
                     playerUnit.ResetAdrenaline();
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
+                    FXManager.Instance.PlayPlayerAnimation("Shield");
                     playerModifier = false;
                     
                 }
@@ -618,6 +627,7 @@ public class Combat_Script : MonoBehaviour
                     UI_Instance.SetPlayerAdrenaline(playerUnit.currentAdrenaline);
                     texto.text = "Peptizing ooze deals "+bodySkillDmg+" to "+ enemyUnit.unitName;
                     playerModifier = false;
+                    FXManager.Instance.PlayEnemyAnimation("Impact");
                     modifierID = 0;
                     
                 }
@@ -864,14 +874,17 @@ public class Combat_Script : MonoBehaviour
         {
             case 0:
                 texto.text = enemyUnit.unitName + " uses Calculated stab";
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 break;
             case 1:
                 texto.text = enemyUnit.unitName + " uses Calculated slash ";
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 break;
             case 2:
                 texto.text = enemyUnit.unitName + " retreats";
                 //enemy shield
                 FXManager.Instance.PlayEnemyAnimation("Shield");
+                
                 modifierID = 4;
                 playerModifier = true;
                 break;
@@ -881,7 +894,7 @@ public class Combat_Script : MonoBehaviour
         UI_Instance.SetPlayerHP(playerUnit.currentHP);
 
         contadorLv1++;
-        if (contadorLv1 >= 2)
+        if (contadorLv1 > 2)
         {
             contadorLv1 = 0;
         }
@@ -940,12 +953,15 @@ public class Combat_Script : MonoBehaviour
         {
             case 0:
                 texto.text = enemyUnit.unitName + " uses Wide slash";
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 break;
             case 1:
                 texto.text = enemyUnit.unitName + " uses Splatter, inflict Armor diluted";
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 break;
             case 2:
                 texto.text = enemyUnit.unitName + " uses Oozing regeneration";
+                FXManager.Instance.PlayEnemyAnimation("Heal");
                 //enemy heals
                 int heals = enemyUnit.maxHP / 5;
                 int finalHeal = enemyUnit.currentHP + heals;
@@ -959,7 +975,7 @@ public class Combat_Script : MonoBehaviour
         UI_Instance.SetPlayerHP(playerUnit.currentHP);
 
         contadorLv1++;
-        if (contadorLv1 >= 2)
+        if (contadorLv1 > 2)
         {
             contadorLv1 = 0;
         }
@@ -981,6 +997,10 @@ public class Combat_Script : MonoBehaviour
                 if (phantomEffect)
                 {
                     dmgFinal = highDamage;
+                }
+                else
+                {
+                    dmgFinal= lowDamage;
                 }
                 // si esta con debuff phantom pega high
                 break;
@@ -1026,18 +1046,21 @@ public class Combat_Script : MonoBehaviour
         {
             case 0:
                 texto.text = enemyUnit.unitName + " uses Gaze of hatred";
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 phantomEffect = true;
                 break;
             case 1:
                
-                if (phantomEffect==false)
+                if (phantomEffect)
                 {
-                    texto.text = enemyUnit.unitName + " uses Flames of the Aberration, but fails";
+                    texto.text = enemyUnit.unitName + " uses Flames of the Aberration, critical damage";
+                    
                 }
                 else
                 {
                     texto.text = enemyUnit.unitName + " uses Flames of the Aberration"; 
                 }
+                FXManager.Instance.PlayPlayerAnimation("Impact");
                 break;
             case 2:
                 texto.text = enemyUnit.unitName + " uses Incorporeal";
@@ -1051,7 +1074,7 @@ public class Combat_Script : MonoBehaviour
         UI_Instance.SetPlayerHP(playerUnit.currentHP);
 
         contadorLv1++;
-        if (contadorLv1 >= 2)
+        if (contadorLv1 > 2)
         {
             contadorLv1 = 0;
         }
