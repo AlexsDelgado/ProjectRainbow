@@ -763,7 +763,7 @@ public class Combat_Script : MonoBehaviour
             }
             if (isDead)
             {
-                state = BattleState.LOSE;
+                state = BattleState.WIN;
                 StartCoroutine(EndBattle());
             }
             else
@@ -994,12 +994,15 @@ public class Combat_Script : MonoBehaviour
                 break;
             case 1:
                 dmgFinal = 0;
-                if (phantomEffect)
+                int auxRandom = Random.Range(0, 10);
+                if (auxRandom<5)
                 {
+                    phantomEffect = true;
                     dmgFinal = highDamage;
                 }
                 else
                 {
+                    phantomEffect = false;
                     dmgFinal= lowDamage;
                 }
                 // si esta con debuff phantom pega high
