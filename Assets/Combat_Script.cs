@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -73,6 +74,11 @@ public class Combat_Script : MonoBehaviour
     private bool dmgMinus;
     private bool dmgBoost;
     private bool canMove = true;
+
+
+    private string enemySkill1;
+    private string enemySkill2;
+    private string enemySkill3;
     
 
     [SerializeField] private int playerShield;
@@ -99,6 +105,7 @@ public class Combat_Script : MonoBehaviour
         ArmSkill = GameManager.Instance.playerData.arm;
         LegSkill = GameManager.Instance.playerData.leg;
         BodySkill = GameManager.Instance.playerData.body;
+        
 
         switch (ArmSkill)
         {
@@ -508,55 +515,58 @@ public class Combat_Script : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-
+        //tiene modificacdores
         if (enemyModifier == true)
         {
             ApllyModifierEnemy();
             Debug.Log("enemy modifier");
 
         }
-
+        // si no tiene stun
         if (canMove == true)
         {
-            int dmgFinal = enemyUnitData.baseDamage;
-            if (dmg0)
-            {
-                dmgFinal = 0;
-                Debug.Log("Dont take any damage");
-            }
-
-            if (dmgMinus)
-            {
-                dmgFinal = dmgFinal - 10;
-                Debug.Log("reduced damage");
-            }
-
-            if (dmgNormal)
-            {
-                dmgFinal = enemyUnitData.baseDamage;
-                
-            }
-
-            if (playerShield != 0)
-            {
-                int auxShield = playerShield;
-                playerShield = playerShield - dmgFinal;
-                dmgFinal = dmgFinal - auxShield;
-                //playerShield = playerShield-dmgFinal;
-                //playerShield = playerShield-dmgFinal;
-                if (dmgFinal < 0)
-                {
-                    dmgFinal = 0;
-                }
-                UI_Instance.SetPlayerShield(playerShield);
-            }
-           
-            
-            texto.text = enemyUnit.unitName + " deals " + dmgFinal+" damage";
-            bool isDead = playerUnit.TakeDamage(dmgFinal);
-            UI_Instance.SetPlayerHP(playerUnit.currentHP);
-            
-            
+            bool isDead = false;
+            isDead = IA_EnemyLv1();
+            //funcion dificultad 1
+            // int dmgFinal = enemyUnitData.baseDamage;
+            // if (dmg0)
+            // {
+            //     dmgFinal = 0;
+            //     Debug.Log("Dont take any damage");
+            // }
+            //
+            // if (dmgMinus)
+            // {
+            //     dmgFinal = dmgFinal - 10;
+            //     Debug.Log("reduced damage");
+            // }
+            //
+            // if (dmgNormal)
+            // {
+            //     dmgFinal = enemyUnitData.baseDamage;
+            //     
+            // }
+            //
+            // if (playerShield != 0)
+            // {
+            //     int auxShield = playerShield;
+            //     playerShield = playerShield - dmgFinal;
+            //     dmgFinal = dmgFinal - auxShield;
+            //     //playerShield = playerShield-dmgFinal;
+            //     //playerShield = playerShield-dmgFinal;
+            //     if (dmgFinal < 0)
+            //     {
+            //         dmgFinal = 0;
+            //     }
+            //     UI_Instance.SetPlayerShield(playerShield);
+            // }
+            //
+            //
+            // texto.text = enemyUnit.unitName + " deals " + dmgFinal+" damage";
+            // bool isDead = playerUnit.TakeDamage(dmgFinal);
+            // UI_Instance.SetPlayerHP(playerUnit.currentHP);
+            //
+            //
             yield return new WaitForSeconds(2f);
             if (isDead)
             {
@@ -569,7 +579,21 @@ public class Combat_Script : MonoBehaviour
                 enemyModifier = false;
                 PlayerTurn();
             } 
+            yield return new WaitForSeconds(2f);
+            if (isDead)
+            {
+                state = BattleState.LOSE;
+                StartCoroutine(EndBattle());
+            }
+            else
+            {
+                state = BattleState.PLAYER;
+                enemyModifier = false;
+                PlayerTurn();
+            } 
+            
         }
+        //si tiene stun cambia de turno
         else
         {
             state = BattleState.PLAYER;
@@ -579,7 +603,80 @@ public class Combat_Script : MonoBehaviour
         } 
        
     }
-    
-    
+
+    public bool IA_EnemyLv1()
+    {
+        
+        string enemigo = enemyUnit.unitName;
+        bool aux =false;
+        
+        switch (enemigo)
+        {
+            case "Battle0":
+               aux = Battle0_Lv1();
+                break;
+            case "Battle1":
+                Battle1_Lv1();
+                break;
+            case "Battle2":
+                
+                break;
+            case "Boss":
+                break;
+        }
+
+        return aux;
+    }
+
+    public bool Battle0_Lv1()
+    {
+
+        int dmgFinal = enemyUnitData.baseDamage;
+        if (dmg0)
+        {
+            dmgFinal = 0;
+        Debug.Log("Dont take any damage");
+        }
+
+        if (dmgMinus)
+        {
+            dmgFinal = dmgFinal - 10;
+        Debug.Log("reduced damage");
+        }
+
+        if (dmgNormal)
+        {
+            dmgFinal = enemyUnitData.baseDamage;
+
+        }
+
+        if (playerShield != 0)
+        {
+            int auxShield = playerShield;
+            playerShield = playerShield - dmgFinal;
+            dmgFinal = dmgFinal - auxShield;
+            //playerShield = playerShield-dmgFinal;
+            //playerShield = playerShield-dmgFinal;
+            if (dmgFinal < 0)
+            {
+                dmgFinal = 0;
+            }
+            UI_Instance.SetPlayerShield(playerShield);
+        }
+        
+        texto.text = enemyUnit.unitName + " deals " + dmgFinal+" damage";
+        bool isDead = playerUnit.TakeDamage(dmgFinal);
+        UI_Instance.SetPlayerHP(playerUnit.currentHP);
+
+        return isDead;
+    }
+    public void Battle1_Lv1()
+    {
+        
+    }
+    public void Battle2_Lv1()
+    {
+        
+    }
 
 }
