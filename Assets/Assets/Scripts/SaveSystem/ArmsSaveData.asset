@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e02508c8d74fa498c8cb5ef9f8a175, type: 3}
   m_Name: ArmsSaveData
   m_EditorClassIdentifier: 
-  skillId: 0
-  skillName: Ndeah
-  skillInfo: No nada, eso!
-  skillImage: {fileID: 0}
+  SkillName: 
+  SkillInfo: 
+  SkillImage: {fileID: 0}
